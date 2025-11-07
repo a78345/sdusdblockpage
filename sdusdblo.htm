@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>Web Page Blocked</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">
+<meta name="viewport" content="initial-scale=1.0">
+<style>
+#content{border:3px solid#aaa;background-color:#ffffff;margin:40;padding:40;font-family:Arial,Tahoma,Helvetica,sans-serif;font-size:12px;}
+  h1{font-family:Arial,Tahoma,Helvetica,sans-serif;font-size:24px;font-weight:bold;color:#321877;}
+  b{font-family:Arial,Tahoma,Helvetica,sans-serif;font-weight:bold;color:#321877;}
+#wrapper {
+  	font-family:Tahoma,Helvetica,Arial,sans-serif;font-size:12px;
+	background: url('/pics/wrapper_bg.jpg') no-repeat center top;
+  	margin: 0 auto -248px;
+  	width: 100%;
+  	min-height: 100%;
+  	height: auto!important;
+  	height: 100%;
+  	padding: 0;
+  	text-align: center;
+  	position: relative;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<div id="wrapper"><p><a href='https://www.sandiegounified.org'>
+	<img src='http://www.sandi.net/it/logos/sdusd_primary.gif'></a></p>
+<h1>Site Blocked by San Diego Unified School District</h1>
+<p>Administrative Procedure 4580 mandates enforcement of an internet filtering policy to protect students from potentially harmful material. Additionally, school districts that receive E-rate funding are required by federal law to be CIPA (Children's Internet Protection Act) compliant.</p>
+<p><b>You have been identified as</b> <span id="ip-address">(insert IP address here)</span> <br>
+<b>URL:</b> <span id="block-website">(insert domain here)</span> <br>
+<b>Category:</b> go back to classwork, you idiot </p>
+<br>
+</div>
+<script type="text/javascript">
+    fetch('https://api.ipify.org?format=json')
+      .then(response => response.json())
+      .then(data => {
+        document.getElementById("ip-address").innerText=data.ip;
+      })
+      .catch(error => {
+        console.error('Error fetching IP address:', error);
+      });
+      document.getElementById("block-website").innerText=window.location;
+</script>
+</body>
+</html>
