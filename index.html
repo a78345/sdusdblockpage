@@ -40,7 +40,11 @@
       .catch(error => {
         console.error('Error fetching IP address:', error);
       });
-      document.getElementById("block-website").innerText=window.location;
+	if (window.location.hash.slice(1).startsWith("https://")||window.location.hash.slice(1).startsWith("http://")||window.location.hash.slice(1).startsWith("HTTPS://")||window.location.hash.slice(1).startsWith("HTTP://")||window.location.hash.slice(1).startsWith("data:")||window.location.hash.slice(1).startsWith("DATA:")){
+      document.getElementById("block-website").innerText=window.location.hash.slice(1);
+	} else {
+	  document.getElementById("block-website").innerText=window.location;
+	}
 </script>
 </body>
 </html>
