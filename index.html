@@ -33,11 +33,11 @@
 </div>
 <script type="text/javascript">
     fetch('https://api.ipify.org?format=json')
-      .then(response => response.json())
-      .then(data => {
+      .then(function(response){return response.json();})
+      .then(function(data){
         document.getElementById("ip-address").innerText=data.ip;
       })
-      .catch(error => {
+      .catch(function(error){
         console.error('Error fetching IP address:', error);
       });
 	if (window.location.hash.slice(1).startsWith("https://")||window.location.hash.slice(1).startsWith("http://")||window.location.hash.slice(1).startsWith("HTTPS://")||window.location.hash.slice(1).startsWith("HTTP://")||window.location.hash.slice(1).startsWith("data:")||window.location.hash.slice(1).startsWith("DATA:")){
